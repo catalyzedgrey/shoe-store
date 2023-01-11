@@ -12,13 +12,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <ImageView
             android:id="@+id/shoe_img"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/shoe_img"
             android:src="@drawable/shoe_store_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,37 +28,46 @@
 
         <TextView
             android:id="@+id/shoe_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{shoe.name}"
+            app:layout_constraintBottom_toTopOf="@+id/shoe_description"
             app:layout_constraintEnd_toStartOf="@id/shoe_size"
             app:layout_constraintStart_toEndOf="@id/shoe_img"
-            app:layout_constraintTop_toTopOf="@id/shoe_img" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/shoe_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{shoe.description}"
+            app:layout_constraintBottom_toTopOf="@+id/shoe_company_name"
             app:layout_constraintEnd_toStartOf="@id/shoe_size"
             app:layout_constraintStart_toEndOf="@id/shoe_img"
-            app:layout_constraintTop_toBottomOf="@id/shoe_name" />
+            app:layout_constraintTop_toBottomOf="@+id/shoe_name"
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/shoe_company_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{shoe.company}"
             android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/shoe_size"
             app:layout_constraintStart_toEndOf="@id/shoe_img"
-            app:layout_constraintTop_toBottomOf="@id/shoe_description" />
+            app:layout_constraintTop_toBottomOf="@+id/shoe_description"
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/shoe_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/red_circle_background"
             android:text="@{String.valueOf(shoe.size)}"
+            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/shoe_img"
             app:layout_constraintEnd_toEndOf="parent"
