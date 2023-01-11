@@ -31,6 +31,10 @@ class ShoeListFragment : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.shoe_list_fragment, container, false)
 
+
+        //Adding views used this link that was already included in the udacity classroom
+        //https://stackoverflow.com/questions/2395769/how-to-programmatically-add-views-to-views
+
         viewModel.shoeList.observe(viewLifecycleOwner) {
             viewModel.shoeList.value?.let { shoeList ->
                 for (shoe in shoeList) {
@@ -60,6 +64,9 @@ class ShoeListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupMenu()
     }
+
+    //Udacity instructor pointed to this https://medium.com/tech-takeaways/how-to-migrate-the-deprecated-oncreateoptionsmenu-b59635d9fe10
+    // to use instead of the deprecated onCreateOptionsMenu
 
     private fun setupMenu() {
         val menuHost = (requireActivity() as MenuHost)
