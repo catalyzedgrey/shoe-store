@@ -7,8 +7,8 @@ import com.udacity.shoestore.models.Shoe
 import kotlin.random.Random
 
 class ShoeListViewModel : ViewModel() {
-    private val _shoeList = MutableLiveData<List<Shoe>>()
-    val shoeList: LiveData<List<Shoe>>
+    private val _shoeList = MutableLiveData<MutableList<Shoe>>()
+    val shoeList: LiveData<MutableList<Shoe>>
         get() = _shoeList
 
     init {
@@ -25,5 +25,9 @@ class ShoeListViewModel : ViewModel() {
             )
         }
         _shoeList.value = mutableShoeList
+    }
+
+    fun addShoe(shoe: Shoe) {
+        _shoeList.value?.add(shoe)
     }
 }

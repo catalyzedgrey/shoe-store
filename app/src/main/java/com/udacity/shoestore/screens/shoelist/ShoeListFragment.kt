@@ -3,8 +3,12 @@ package com.udacity.shoestore.screens.shoelist
 import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -17,7 +21,7 @@ import com.udacity.shoestore.screens.login.LoginFragmentDirections
 class ShoeListFragment : Fragment() {
 
     lateinit var binding: ShoeListFragmentBinding
-    lateinit var viewModel: ShoeListViewModel
+    private val viewModel: ShoeListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,8 +31,6 @@ class ShoeListFragment : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.shoe_list_fragment, container, false)
 
-        viewModel = ViewModelProvider(this)[ShoeListViewModel::class.java]
-        setHasOptionsMenu(true)
         viewModel.shoeList.observe(viewLifecycleOwner) {
             viewModel.shoeList.value?.let { shoeList ->
                 for (shoe in shoeList) {
@@ -46,20 +48,42 @@ class ShoeListFragment : Fragment() {
                 }
             }
         }
+        binding.fab1.setOnClickListener {
+            onFloatingButtonClick()
+        }
 
         return binding.root
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.logout_menu, menu)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupMenu()
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        logOut()
-        return super.onOptionsItemSelected(item)
+    private fun setupMenu() {
+        val menuHost = (requireActivity() as MenuHost)
+        menuHost.addMenuProvider(
+            object : MenuProvider {
+
+                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                    menuInflater.inflate(R.menu.logout_menu, menu)
+                }
+
+                override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                    logOut()
+                    return true
+                }
+
+            },
+            viewLifecycleOwner,
+            Lifecycle.State.RESUMED
+        )
+    }
+
+    private fun onFloatingButtonClick() {
+        val action = ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailsFragment()
+        NavHostFragment.findNavController(this).navigate(action)
     }
 
     private fun logOut() {
