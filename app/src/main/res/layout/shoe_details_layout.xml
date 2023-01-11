@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/add_shoe_name"
+            android:id="@+id/shoeNameText"
+            style="@style/DetailsTextStyle" />
+
+        <EditText
+            android:id="@+id/shoeNameEdit"
+            style="@style/DetailsEditStyle"
+            android:hint="@string/add_shoe_name" />
+
+        <TextView
+            android:text="@string/add_company_name"
+            android:id="@+id/shoeCompanyNameText"
+            style="@style/DetailsTextStyle" />
+
+        <EditText
+            android:id="@+id/shoeCompanyNameEdit"
+            style="@style/DetailsEditStyle"
+            android:hint="@string/add_company_name" />
+
+        <TextView
+            android:text="@string/add_shoe_size"
+            android:id="@+id/shoeSizeText"
+            style="@style/DetailsTextStyle" />
+
+        <EditText
+            android:id="@+id/shoeSizeEdit"
+            style="@style/DetailsEditStyle"
+            android:hint="@string/add_shoe_size"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:text="@string/add_description"
+            android:id="@+id/shoeDescriptionText"
+            style="@style/DetailsTextStyle" />
+
+        <EditText
+            android:id="@+id/shoeDescriptionEdit"
+            style="@style/DetailsEditStyle"
+            android:hint="@string/add_description" />
+
+        <Button
+            android:text="@string/add_shoe"
+            android:id="@+id/addShoeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+        <Button
+            android:text="@string/cancel"
+            android:id="@+id/cancelButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+    </LinearLayout>
+
+</layout>

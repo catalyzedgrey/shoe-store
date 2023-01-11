@@ -13,4 +13,11 @@
     <string name="instructions_text">You can add shoes</string>
     <string name="instructions">Instructions</string>
     <string name="logout">Logout</string>
+    <string name="shoe_img">Shoe Image</string>
+    <string name="add_shoe_size">Add shoe size</string>
+    <string name="add_company_name">Add company name</string>
+    <string name="add_shoe_name">Add shoe name</string>
+    <string name="add_description">Add description</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_shoe">Add shoe</string>
 </resources>

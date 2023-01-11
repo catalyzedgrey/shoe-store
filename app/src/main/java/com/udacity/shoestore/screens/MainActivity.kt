@@ -22,9 +22,15 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
         Timber.plant(Timber.DebugTree())
 
+        setSupportActionBar(binding.toolbar)
         navController = this.findNavController(R.id.myNavHostFragment)
-
         val appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
         NavigationUI.setupWithNavController(binding.toolbar,navController,appBarConfiguration)
+
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.myNavHostFragment).navigateUp() || super.onSupportNavigateUp()
+    }
+
 }
