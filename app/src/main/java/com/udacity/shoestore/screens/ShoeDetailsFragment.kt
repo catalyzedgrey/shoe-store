@@ -29,6 +29,9 @@ class ShoeDetailsFragment : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.shoe_details_layout, container, false)
 
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
         binding.addShoeButton.setOnClickListener {
             addShoe()
         }
@@ -45,14 +48,7 @@ class ShoeDetailsFragment : Fragment() {
     }
 
     private fun addShoe() {
-        viewModel.addShoe(
-            Shoe(
-                name = binding.shoeNameEdit.text.toString(),
-                company = binding.shoeCompanyNameEdit.text.toString(),
-                description = binding.shoeDescriptionEdit.text.toString(),
-                size = binding.shoeSizeEdit.text.toString().toDouble(),
-            )
-        )
+        viewModel.addShoe()
         NavHostFragment.findNavController(this).navigateUp()
     }
 }

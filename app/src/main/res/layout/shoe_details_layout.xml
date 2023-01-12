@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.screens.shoelist.ShoeListViewModel" />
+    </data>
+
+
     <!--I used a linear layout here because all views appear sequentially without after each other-->
     <!--without the need for any complex positioning-->
 
@@ -10,61 +17,65 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="@string/add_shoe_name"
             android:id="@+id/shoeNameText"
-            style="@style/DetailsTextStyle" />
+            style="@style/DetailsTextStyle"
+            android:text="@string/add_shoe_name" />
 
         <EditText
             android:id="@+id/shoeNameEdit"
             style="@style/DetailsEditStyle"
-            android:hint="@string/add_shoe_name" />
+            android:hint="@string/add_shoe_name"
+            android:text="@={viewModel.shoe.name}" />
 
         <TextView
-            android:text="@string/add_company_name"
             android:id="@+id/shoeCompanyNameText"
-            style="@style/DetailsTextStyle" />
+            style="@style/DetailsTextStyle"
+            android:text="@string/add_company_name" />
 
         <EditText
             android:id="@+id/shoeCompanyNameEdit"
             style="@style/DetailsEditStyle"
-            android:hint="@string/add_company_name" />
+            android:hint="@string/add_company_name"
+            android:text="@={viewModel.shoe.company}" />
 
         <TextView
-            android:text="@string/add_shoe_size"
             android:id="@+id/shoeSizeText"
-            style="@style/DetailsTextStyle" />
+            style="@style/DetailsTextStyle"
+            android:text="@string/add_shoe_size" />
 
         <EditText
             android:id="@+id/shoeSizeEdit"
             style="@style/DetailsEditStyle"
             android:hint="@string/add_shoe_size"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:text="@={`` + viewModel.shoe.size}" />
 
         <TextView
-            android:text="@string/add_description"
             android:id="@+id/shoeDescriptionText"
-            style="@style/DetailsTextStyle" />
+            style="@style/DetailsTextStyle"
+            android:text="@string/add_description" />
 
         <EditText
             android:id="@+id/shoeDescriptionEdit"
             style="@style/DetailsEditStyle"
-            android:hint="@string/add_description" />
+            android:hint="@string/add_description"
+            android:text="@={viewModel.shoe.description}" />
 
         <Button
-            android:text="@string/add_shoe"
             android:id="@+id/addShoeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp" />
+            android:paddingEnd="16dp"
+            android:text="@string/add_shoe" />
 
         <Button
-            android:text="@string/cancel"
             android:id="@+id/cancelButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp" />
+            android:paddingEnd="16dp"
+            android:text="@string/cancel" />
 
     </LinearLayout>
 
