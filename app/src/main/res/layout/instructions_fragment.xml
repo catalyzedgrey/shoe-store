@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--
+    I used a Constraint layout was used here to align the button with the bottom right of the screen
+    I know I could use a linear layout with weights for the items but thought this would be better.
+    same as welcome fragment
+    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

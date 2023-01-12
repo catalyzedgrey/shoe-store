@@ -9,6 +9,12 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+
+    <!--
+    I used a constraint layout here so that i can position the image icon at the start of the layout
+    and the shoe size at the end while allowing the text views to take the width between them and be be aligned with the top and bottom of the image
+     -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,9 +71,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/red_circle_background"
+            android:gravity="center"
             android:text="@{String.valueOf(shoe.size)}"
             android:textAlignment="center"
-            android:gravity="center"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/shoe_img"
             app:layout_constraintEnd_toEndOf="parent"

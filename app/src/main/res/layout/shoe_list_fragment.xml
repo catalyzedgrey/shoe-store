@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    I used a relative layout here because the floating action button kept jumping to the top inside the linear layout
+    I dont know if this is because the other shoe views get added dynamically so the FAB is positioned first then
+    the shoe items or not
+    -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
